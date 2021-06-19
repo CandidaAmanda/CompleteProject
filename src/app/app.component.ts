@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'completeProject';
+  dataToChild="Hi, this is parent";
+
+  getChildData(data:String)
+  {
+    console.log (data);
+
+  }
 }

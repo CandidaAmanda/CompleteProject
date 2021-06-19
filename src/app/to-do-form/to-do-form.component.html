@@ -8,22 +8,32 @@
     gap: 12px;
   }
 </style>
-
-
-    <!-- Highlight Card -->
-  
-    <!-- Resources -->
-    
-    
   
    <!-- Content -->
     <div class="card-container">
-        <h2>Resources</h2>
-    <label>Action: </label>
-    <input type="text" name ="action">
-    <label>Priority: </label>
-    <input type="text" name ="priority">
-    <button class="btn btn-primary" type ="button">Add Task</button>
-  
-    </div>
+        <h2>Add Task</h2>
+        <label>Action: </label>
+        <input type="text" name ="action" class="form-control" [(ngModel)]="action" placeholder="Enter Task">
+        <label>Priority: </label>
+        <input type="text" name ="priority" class="form-control" [(ngModel)]="priority" placeholder="Enter Priority">
+        <button class="btn btn-primary" type ="submit" (click)="onBtnClick()" [disabled]="submitBtnDisabled">Add Task</button>
+        <p>Perform task: {{action}} with priority: {{priority}}</p>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Task</th>
+            <th scope="col">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor ="let task of taskList;let i=index">
+             <th scope="row">{{i+1}}</th>
+            <td>{{task.taskName}}</td>
+            <td>{{task.taskPriority}}</td>
+          </tr>
+          </tbody>
+      </table>
     
